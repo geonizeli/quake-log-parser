@@ -1,10 +1,4 @@
-import Koa from 'koa';
-
-const app = new Koa();
-
-app.use(async (ctx) => {
-  ctx.body = `${ctx.method} ${ctx.url}`;
-});
+import app from './app';
 
 const DEFAULT_PORT = 3000;
 
