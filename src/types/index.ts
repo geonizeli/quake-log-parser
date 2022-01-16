@@ -24,6 +24,6 @@ export type Game = {
   }
 }
 
-export type GameReport = {
+export type GamesList = {
   [gameId: string]: Game,
 }
