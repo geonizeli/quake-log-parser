@@ -12,14 +12,18 @@ app.use(
 );
 
 app.use(async (ctx) => {
-  const [parseError, parseResult] = await LogParserService.parse(ctx.request.body);
+  const [parseError, parseResult] = await LogParserService.parse(
+    ctx.request.body,
+  );
 
-  if (ctx.path === '/') {
+  if (ctx.path === '/events') {
     ctx.body = parseError?.message ?? parseResult;
   } else if (ctx.path === '/matchs') {
-    const [matchReportError, matchsReportResult] = await GameReportService.matchs(parseResult);
+    const [matchReportError, matchsReportResult] =
+      await GameReportService.matchs(parseResult);
 
-    ctx.body = matchReportError?.message ?? matchsReportResult;
+    ctx.body =
+      parseError?.message ?? matchReportError?.message ?? matchsReportResult;
   }
 });
 
