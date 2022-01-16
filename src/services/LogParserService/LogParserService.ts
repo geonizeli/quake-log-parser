@@ -1,6 +1,6 @@
 import { until } from '@open-draft/until';
 import { pipe } from 'ramda';
-import { GameEvent } from '../../types';
+import { GroupedGamesEvents } from '../../types';
 import { groupEventsByGame } from './groupEventsByGame';
 import { identifyLogs } from './identifyLogs';
 import { removeUselessLog } from './removeUselessLog';
@@ -13,8 +13,8 @@ const parseFlow = pipe(
   groupEventsByGame,
 );
 
-const parse = (payload: string): Promise<GameEvent[][]> =>
-  new Promise<GameEvent[][]>((resolve, reject) => {
+const parse = (payload: string): Promise<GroupedGamesEvents> =>
+  new Promise<GroupedGamesEvents>((resolve, reject) => {
     if (typeof payload !== 'string') {
       reject(new Error('Payload must be a string'));
     }

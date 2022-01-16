@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node build/src/main.js",
+    "start:dev": "yarn build && yarn start",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.release.json",

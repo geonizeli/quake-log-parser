@@ -1,10 +1,9 @@
-import { GameEvent, GameEventType } from '../../types';
+import { GameEvent, GameEventType, GroupedGamesEvents } from '../../types';
 
 export const groupEventsByGame = (
   gameEvents: GameEvent[],
-): GameEvent[][] => {
-  const result: GameEvent[][] = [];
-
+): GroupedGamesEvents => {
+  const result: GroupedGamesEvents = [];
   let groupedGameEvents: GameEvent[] = [];
 
   gameEvents.forEach((gameEvent) => {
